@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文字从左边移动到右边</title></head>
+    <script language="javascript">
+        i=0;
+        function moveText(){
+            txt.style.left = i;
+            i++;
+            if(i > (parseInt(document.body.clientWidth)))i=1;
+            setTimeout("moveText()",10);
+        }
+    </script>
+
+<body onLoad="moveText()">
+<div id="txt" style="position:absolute;width=160">文字从左边移动到右边</div>
+</body>
+</html>
