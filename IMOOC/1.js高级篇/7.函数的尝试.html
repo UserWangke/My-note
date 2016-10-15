@@ -1,0 +1,30 @@
+<!DOCTYPE  HTML>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>函数的尝试</title>
+<script type="text/javascript">
+window.onload=function () {
+	//定义函数
+	function aa(x,y){
+		//函数体，判断两个整数比较的三种情况
+		    if(x>y){
+		        return x;
+		    }else if(y>x){
+		        return y;
+		    }else{
+		        return "x和y一样大";
+		    }
+	    }
+	
+	//调用函数，实现下面两组数中，返回较大值。
+		var result1=aa(5,4);//下面不用var也可以
+		result2=aa(6,3);
+	    document.write(" 5 和 4 的较大值是:"+result1+"<br>");
+	    document.write(" 6 和 3 的较大值是:"+result2); 
+};
+</script>
+</head>
+<body>
+</body>
+</html>
