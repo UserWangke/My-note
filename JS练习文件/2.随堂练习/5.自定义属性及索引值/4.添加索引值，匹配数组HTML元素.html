@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>4.添加索引值，匹配数组HTML元素</title>
+</head>
+<script>
+    window.onload=function(){
+        var aBtn=document.getElementsByTagName('input');
+        for(var i=0;i<aBtn.length;i++){
+            aBtn[i].a=i+;//自定义属性（索引值）
+            aBtn[i].onclick=function(){
+                //alert(i);  //3
+                alert(this.a);
+            }
+        }
+    };
+</script>
+<body>
+    <input type="button" value="btn1"/>
+    <input type="button" value="btn2"/>
+    <input type="button" value="btn3"/>
+</body>
+</html>

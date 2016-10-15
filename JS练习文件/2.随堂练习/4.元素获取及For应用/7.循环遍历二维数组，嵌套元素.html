@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>7.循环遍历二维数组，嵌套元素</title>
+</head>
+<!--<script>
+    window.onload=function(){
+        var arr=[
+            [1,2,3,'4+'],
+            [4,5,6],
+            [7,8,9]
+        ];
+        for (var i=0;i<arr.length;i++){
+            for(var j=0;j<arr[i].length;j++){
+                alert(arr[i][j]);
+            }
+        }
+    };
+</script>-->
+<script>
+    window.onload=function(){
+        var oUl=document.getElementById('list');
+        var aUl=oUl.getElementsByTagName('li');
+        var len=aUl.length;
+        var aLi=null;//空
+        for(var i=0;i<len;i++){
+            aLi=aUl[i].getElementsByTagName('li');
+            for(var j=0;j<aLi.length;j++){
+                aLi[j].style.border='1px solid red';
+            }
+        }
+    };
+</script>
+<body>
+    <ul id="list">
+        <li>
+            <h2>我的好友</h2>
+            <ul>
+                <li>政委</li>
+                <li>团长</li>
+                <li>营长</li>
+            </ul>
+        </li>
+        <ol>
+            <li>不要选我</li>
+            <li>不要选我</li>
+            <li>不要选我</li>
+        </ol>
+        <li>
+            <h2>高中组</h2>
+            <ul>
+                <li>王淦</li>
+                <li>黎明</li>
+                <li>张松</li>
+            </ul>
+        </li>
+        <ol>
+            <li>不要选我</li>
+            <li>不要选我</li>
+            <li>不要选我</li>
+        </ol>
+        <li>
+            <h2>重案六组</h2>
+            <ul>
+                <li>殷朗</li>
+                <li>王勇</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

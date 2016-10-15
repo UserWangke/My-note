@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>4.添加索引值，匹配数组HTML元素</title>
+</head>
+<script>
+    //想建立“匹配”“对应”关系，就用索引值
+    window.onload=function(){
+        var aBtn=document.getElementsByTagName('input');
+        var aP=document.getElementsByTagName('p');
+        var arr=['沫沫','张思','杜哥'];
+        for(var i=0;i<aBtn.length;i++){
+            aBtn[i].index=i;//自定义属性（索引值）
+            aBtn[i].onclick=function(){
+                //alert(arr[this.index]);
+                this.value=arr[this.index];
+                aP[this.index].innerHTML=arr[this.index];
+            }
+        }
+    };
+</script>
+<body>
+<input type="button" value="btn1"/>
+<input type="button" value="btn2"/>
+<input type="button" value="btn3"/>
+<p>a</p>
+<p>b</p>
+<p>c</p>
+</body>
+</html>

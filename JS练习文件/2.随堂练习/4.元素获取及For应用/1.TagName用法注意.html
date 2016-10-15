@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>TagName用法注意</title>
+</head>
+//TagName特点：1.前面不止可以放document
+               2.找到是集合，用[]区别
+               3.可以动态找到js添加的新标签
+<script>
+    window.onload=function(){
+        var oUl=document.getElementById('list');
+        var aLi=oUl.getElementsByTagName('li')[0];
+        //在使用TagName时必须加上：[],才能找到想要的那个li，不然找到的是所有的li。
+        //alert(aLi.length);
+        //var aLi=document.getElementsByTagName('li');这样找到的是所有的6个li；
+    };
+</script>
+<body>
+    <ul id="list">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+<ol>
+    <li></li>
+    <li></li>
+    <li></li>
+</ol>
+</body>
+</html>

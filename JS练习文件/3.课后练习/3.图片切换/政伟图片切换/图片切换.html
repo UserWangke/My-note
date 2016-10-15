@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link  rel="stylesheet" type="text/css" href="图片切换.css"/>
+    <title></title>
+    <script>
+        window.onload=function(){
+            var Urlarr=['James.jpg','kobe.png','T-MAC.jpg','curry.png'];
+            var Textarr=['詹姆斯','科比','麦迪','库里'];
+            var oP1=document.getElementById('p1');
+            var oP2=document.getElementById('p2');
+            var oP3=document.getElementById('p3');
+            var oBtn1=document.getElementById('btn1');
+            var oBtn2=document.getElementById('btn2');
+            var oBtn3=document.getElementById('btn3');
+            var oBtn4=document.getElementById('btn4');
+            var oPic=document.getElementById('pic');
+            var i=0;
+            oBtn1.onclick=function(){
+                oP1.innerHTML='循环切换';
+                XHfun();
+
+
+            };
+            oBtn2.onclick=function(){
+                oP1.innerHTML='顺序切换';
+                SXfun();
+
+
+            };
+            function Tabfun(){
+                oP2.innerHTML=i+1+'/'+Urlarr.length;
+                oP3.innerHTML=Textarr[i];
+                oPic.background.url=Urlarr[i];
+            }
+            Tabfun();
+
+            //循环切换函数
+            function XHfun() {
+                oBtn4.onclick = function () {
+                    i++;
+                    if (i==Urlarr.length) {
+                        i=0;
+                    }
+                    Tabfun();
+                };
+                oBtn3.onclick = function () {
+                    i--;
+                    if (i==-1) {
+                        i=Urlarr.length-1;
+                    }
+                    Tabfun();
+                };
+            }
+            //顺序切换函数
+            function SXfun() {
+                oBtn4.onclick = function () {
+                    i++;
+                    if (i==Urlarr.length) {
+                        i=Urlarr.length-1;
+                        alert('这是最后一张了');
+                    }
+                    Tabfun();
+                };
+                oBtn3.onclick = function () {
+                    i--;
+                    if (i==-1) {
+                        i=0;
+                        alert('这是第一张了');
+                    }
+                    Tabfun();
+                };
+            }
+        }
+
+
+    </script>
+
+</head>
+<body>
+  <section>
+      <div id="shang">
+      <input type="button" id="btn1" value="循环切换" class="btn"/>
+      <input type="button" id="btn2" value="顺序切换" class="btn"/>
+      <p id="p1" > 图片只能顺序切换</p>
+
+      </div>
+      <div id="xia">
+         <div id="pic">
+             <input type="button" id="btn3" value="<" class="jiantou" onMouseOver="style.opacity='0.5'" onMouseOut="style.opacity='0.8'"/>
+             <input type="button" id="btn4" value=">" class="jiantou" onMouseOver="style.opacity='0.5'" onMouseOut="style.opacity='0.8'"/>
+             <div id="div1" class="du"><p class="pp" id="p2">1/4</p></div>
+             <div id="div2" class="du"><p class="pp" id="p3">詹姆斯</p></div>
+         </div>
+      </div>
+
+
+  </section>
+
+</body>
+</html>

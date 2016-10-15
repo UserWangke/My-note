@@ -1,0 +1,78 @@
+body{background:#cccccc;}
+section{width:400px;
+         height:500px;
+         background:white;
+         margin:40px auto;
+
+
+}
+#shang{width:380px;
+       height:100px;
+
+    margin:10px;
+    float:left;
+}
+#xia{width:380px;
+    height:360px;
+    background-color:gray;
+float:left;
+margin:10px;}
+#pic{width:360px;
+    height:340px;
+    margin:10px;
+    background:url(James.jpg) no-repeat;
+    background-size: 380px 360px;
+
+
+}
+
+.du{
+    width:360px;
+    height:50px;
+    background:black;
+    position:relative;
+    opacity:0.8;
+
+}
+.pp{
+    margin:0;
+    text-align:center;
+    color:white;
+    opacity:1;
+    font-size: xx-large;
+
+}
+#div1{
+    bottom:50px;
+}
+#div2{
+    top:190px;
+
+}
+.btn{
+    margin:5px ;
+    width:80px;
+    height:40px;
+    position:relative;
+    left:90px;
+}
+#p1{
+    text-align:center;
+    width:300px;
+    position:relative;
+    left:40px;
+    font-weight:bolder;
+}
+.jiantou{
+    width:50px;
+    height:50px;
+    position:relative;
+    top:145px;
+    font-size: larger;
+    opacity:0.8;
+}
+
+#btn4{
+    left:252px;
+}
+

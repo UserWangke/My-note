@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>2.自定义属性的应用</title>
+</head>
+<style>
+    li{list-style: none;width: 114px;height: 140px;background: url(img/normal.png);float: left;margin-right: 20px;}
+</style>
+<script>
+    window.onload=function(){
+        var aLi=document.getElementsByTagName('li');
+        //var onOff=true;一个开关只能控制一组；所以用js自定义属性给每一个li添加开关；
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].onOff=true;//用js自定义属性给每一个li添加开关；
+            aLi[i].onclick=function(){
+                if(this.onOff){
+                    this.style.background='url(img/active.png)';
+                    this.onOff=false;
+                }else{
+                    this.style.background='url(img/normal.png)';
+                    this.onOff=true;
+                }
+            }
+        }
+    };
+</script>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

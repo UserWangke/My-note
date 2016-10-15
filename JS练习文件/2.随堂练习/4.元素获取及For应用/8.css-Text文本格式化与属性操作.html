@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>8.css-Text文本格式化与属性操作</title>
+</head>
+<style>
+    #main{width:200px; height:500px;border: 1px solid red;}
+</style>
+<script>
+    window.onload=function(){
+        var oMain=document.getElementById('main');
+        var oBtn=document.getElementById('btn');
+        oMain.onclick=function(){
+           // oMain.style.width='200px'; //它不是修改样式表里的值，而是给元素本身加上行内样式，行内样式优先级高；
+            oMain.style.cssText='width:200px;height:200px;';//这是另一种写法，没有兼容性问题；
+            oBtn.onclick=function(){
+                oMain.style.cssText='width:100px;';
+                //这个ccsText会覆盖上面那个cssText;不会影响样式表里的内容，只是优先级更高；
+            }
+        }
+    };
+</script>
+<body>
+    <div id="main">年华美丽，盛开如诗。</div>
+    <input id="btn" type="button" value="按钮">
+</body>
+</html>

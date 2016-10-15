@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body{width:100%;height:100%;}
+    *{margin:0 auto;padding:0;}
+    #bgimg1{
+        position:relative;
+        text-align:center;
+        background:url(img/3.jpg) no-repeat;
+        width:404px;
+        height:800px;
+    }
+    #bgcolor1{
+        overflow-x:hidden;
+        position:absolute;
+        text-align:left;
+        left:45px;
+        top:125px;
+        width:305px;
+    }
+    #bgcolor2{
+        left:47px;
+        top:640px;
+        width:310px;
+        height:40px;
+        position:absolute;
+    }
+    #text1{
+        margin-left:25px;
+        border:none;
+        border-radius:5px;
+        height:30px;
+        width:220px;
+    }
+    #btn1{
+        border:none;
+        border-radius:4px;
+        width:30px;
+        height:30px;
+        background:#f0f0f0;
+    }
+    #change1{
+        position:absolute;
+        float:left;
+        background:#FFF;
+        border:thin 1px;
+        left:4px;
+        width:30px;
+        height:30px;
+        border-radius:5px;
+    }
+    #btn1:hover{
+        cursor:pointer;
+    }
+    /*#bgcolor2 img{
+    left:-2px;
+    position:absolute;
+    background:#FFF;
+    border:thin 1px;
+    border-radius:4px;
+    width:30px;
+    height:28px;*/
+
+    #change1:hover{
+        cursor:pointer;
+    }
+    #ul1{list-style-type:none;}
+    .sp01{
+        color:#fff;
+        padding-left:5px;
+        padding-right:5px;
+        margin-left:30px;
+        word-break:break-all;/*注意：如果不添加强制换行，中文可以自动换行，英文则不能自动换行*/
+        display:inline-block;
+        line-height:28px;
+        border:1px thin;
+        border-radius:5px;
+        background:#9C3;
+    }
+    .sp02{
+        padding-left:5px;
+        padding-right:5px;
+        margin-right:30px;
+        word-break:break-all;/*注意：如果不添加强制换行，中文可以自动换行，英文则不能自动换行*/
+        display:inline-block;
+        line-height:28px;
+        border:1px thin;
+        border-radius:5px;
+        color:#9c3;
+        background:#FFF;
+        float:right;
+    }
+    .pic01{width:265px;background:url(img/1.jpg) no-repeat left top;float:left;margin-top:10px;margin-left:10px;}/*注意：不设置div的高度，这样div的高度会随着内容变化，由内容撑起高度*/
+    .pic02{width:265px;background:url(img/2.jpg) no-repeat right top;float:right;margin-top:10px;margin-right:10px;}
+</style>
+<body>
+<div id="bgimg1">
+    <div id="bgcolor1"> <!--这个div是用来放js生成的内容的-->
+    </div>
+    <div id="bgcolor2">
+        <img id="change1" src="img/1.jpg">
+        <input type="text" value="" id="text1">
+        <input type="button" value="发送" id="btn1">
+    </div>
+</div>
+<script>
+    window.onload=function(){
+        var oForm=document.getElementById("form1");
+        var oText=document.getElementById("text1");
+        var oBtn=document.getElementById("btn1");
+        var oChange=document.getElementById("change1");
+        var oContent=document.getElementById("bgcolor1");
+        var oUl=document.getElementById("ul1");
+        var onOff=true;
+//var oSet=oContent.offsetHeight;/*获取元素高度。注意：如果样式不是写在行内的，是不能直接通过style.width获得元素高度的*/
+        oChange.onclick=myFunction; /*切换聊天图片*/
+        function myFunction(){
+            if(onOff){oChange.src='img/2.jpg';onOff=false;}
+            else{oChange.src='img/1.jpg';onOff=true;}
+        }
+        oBtn.onclick=function(){
+            if(oText.value==''){alert('请输入点内容吧~ ~')}//注意：alert()的括号中，字符串要加引号才行
+            else{
+                if(onOff){oContent.innerHTML+='<div class="pic01">'+'<span class="sp01">'+oText.value+'</span>'+'</div>';}
+                else{oContent.innerHTML+='<div class="pic02">'+'<span class="sp02">'+oText.value+'</span>'+'</div>';
+                oText.value='';}
+        }
+        /* if(oSet==0){oContent.style.overflowY='scroll'};*/
+    }};
+</script>
+</body>
+</html>

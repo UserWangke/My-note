@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>课后练习1</title>
+<link href="index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	var but=document.getElementById('but');
+	var right=document.getElementById('right');
+	but.onclick=function(){right.style.display='block';}
+</script>
+</head>
+<body>
+	<div class="main">
+	    <div class="top">
+			<span><h2 id="hh">请为下面的小白鼠设置样式：</h2></span>
+			<input id="but" type="button" value="点击设置"/> 
+			<div class="clear"></div>
+	    </div>
+	    <div class="left">小白鼠</div>
+		<div class="clear"></div>
+	    <div id="right">
+			<div class="col">
+				<span>请选择颜色：</span>
+				<div class="div1 tong">红</div>
+				<div class="div2 tong">黑</div>
+				<div class="div3 tong">蓝</div>
+			</div>
+			<div class="col">
+				<span>请选择宽度：</span>
+				<div class="div4 tong">200px</div>
+				<div class="div5 tong">250px</div>
+				<div class="div6 tong">300px</div>
+			</div>
+			<div class="col">
+				<span>请选择高度：</span>
+				<div class="div7 tong">200px</div>
+				<div class="div8 tong">250px</div>
+				<div class="div9 tong">300px</div>
+			</div>
+			
+		</div>
+	</div>
+</body>
+</html>

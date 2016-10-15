@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>自建js简易日历</title>
+</head>
+<script>
+    window.onload=function(){
+        var Text_2arr=['一月活动','二月活动','三月活动','四月活动','五月活动','六月活动','七月活动','八月活动',
+            '九月活动','十月活动','十一月活动','十二月活动'];
+        var oMain=document.getElementsByClassName('main');
+        var oLi=document.getElementsByTagName('li');
+        var oText_1=document.getElementById('text_1');
+        var oText_2=document.getElementById('text_2');
+        var i=0;
+        oLi.onmousemove=function(){
+            oLi.ClassName='same';
+            this.ClassName='same active';
+        };
+    };
+</script>
+<style>
+    ul{list-style: none;margin:0;width:330px;height:440px;}
+    li{list-style: none;}
+    .main{width: 400px;height:600px;background:cornflowerblue;border: 1px solid #000000;margin:20px auto;
+        position: relative;}
+    .same{width: 100px;height: 100px;margin:5px;background: #000000;float: left;color:#fff;text-align: center;
+        font-size:15px;line-height: 40px;font-weight:bold; }
+    .active{background: #fff; color: red;}
+    #footer{width: 400px;height: 100px;position: absolute;top:500px;text-align: center;}
+    #text_2{font-weight: bold;font-size: 20px;}
+</style>
+<body>
+    <section class="main">
+        <ul>
+            <li class="same active"> 1月 <br/> JAN </li>
+            <li class="same"> 2月 <br/> FEB </li>
+            <li class="same"> 3月 <br/> MAR </li>
+            <li class="same"> 4月 <br/> APR </li>
+            <li class="same"> 5月 <br/> MAY </li>
+            <li class="same"> 6月 <br/> JUN </li>
+            <li class="same"> 7月 <br/> JUL </li>
+            <li class="same"> 8月 <br/> AUG </li>
+            <li class="same"> 9月 <br/> SEPT </li>
+            <li class="same"> 10月 <br/> OCT </li>
+            <li class="same"> 11月 <br/> NOV </li>
+            <li class="same"> 12月 <br/> DEC </li>
+        </ul>
+        <div id="footer">
+            <h3 id="text_1">文字加载中...</h3>
+            <span id="text_2">文字正在加载...</span>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我们的征途是星辰大海</title>
+    <style>
+        body{background-image:url(imgs/dream.jpg);background-size:cover;}
+        section{width:400px;height:450px;background:white;position:absolute;top:50px;left:475px;overflow: hidden;}
+        #div1{width:400px;height:350px;}
+        #div2{width:800px;height:100px;background:black;position:absolute;}
+        #btn1{position:relative;top:145px;margin:0;opacity:0;z-index:3001;}
+        #btn2{position:relative;top:145px;float:right;margin:0;opacity:0;z-index:3001;}
+        #span{width:400px;height:40px;position:relative;top:245px;margin:0;z-index:3001;background:black;opacity:0.7;}
+        #mark1{width:200px;height:350px;position:absolute;left:0;top:0;background:green;
+            opacity:0;z-index:3000;}
+        #mark2{width:200px;height:350px;position:absolute;left:200px;top:0;background:blue;
+            opacity:0;z-index:3000;}
+        #ul2 li{list-style: none;padding:0;margin:0;position:relative;left:0;}
+        #ul1 li{list-style: none;padding:0;margin:0;position:absolute;left:0;top:0;overflow:hidden;}
+        #ul1 li img{width:400px;height:350px;margin:0;}
+        #ul2 li img{width:90px;height:90px;float:left; position:relative;top:5px;margin-left:9px;opacity: 0.6;}
+        #ul1{padding:0;margin:0;}
+        #ul2{padding:0;margin:0; position:relative;top:0;left:0;}
+        #p{margin:0;  text-align:center;  color:white;  opacity:1;  font-size: xx-large;}
+    </style>
+    <script>
+        //复杂布局选取元素
+        function getByClass(oParent,sClass)
+        {
+            var aEle=oParent.getElementsByTagName('*');
+            var aResult=[];
+
+            for(var i=0;i<aEle.length;i++) {
+                if (aEle[i].className == sClass) {
+                    aResult.push(aEle[i]);
+                }
+            }
+            return aResult;
+        }
+        //任意值运动框架
+        function getStyle(obj,name)
+        {
+            if(obj.currentStyle){return obj.currentStyle[name];}
+            else{return getComputedStyle(obj,false)[name];}
+        }
+        function startMove(obj,attr,iTarget) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var cur = 0;
+
+                if (attr == 'opacity') {
+                    cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
+                }
+                else {
+                    cur = parseInt(getStyle(obj, attr));
+                }
+
+                var speed = (iTarget - cur) / 6;
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+                if (cur == iTarget) {
+                    clearInterval(obj.timer);
+                }
+                else {
+                    if (attr == 'opacity') {
+                        obj.style.filter = 'alpha(opacity:' + (cur + speed) + ')';
+                        obj.style.opacity = (cur + speed) / 100;
+
+                        //  document.getElementById('txt1').value=obj.style.opacity;
+                    }
+                    else {
+                        obj.style[attr] = cur + speed + 'px';
+                    }
+                }
+            }, 30);
+        }
+        window.onload=function() {
+            var oBtn1 = document.getElementById('btn1');
+            var oBtn2 = document.getElementById('btn2');
+            var oMark1 = document.getElementById('mark1');
+            var oMark2 = document.getElementById('mark2');
+            var aUl2 = document.getElementById('ul2');
+            var aLi2 = aUl2.getElementsByTagName('li');
+            var aUl1 = document.getElementById('ul1');
+            var aLi1 = aUl1.getElementsByTagName('li');
+            var oP= document.getElementById('p');
+            var nowZIndex = 2;
+            var now = 0;
+
+            //左右按钮
+            oBtn1.onmouseover = oMark1.onmouseover = function () {
+                startMove(oBtn1, 'opacity', 100);
+            };
+            oBtn2.onmouseover = oMark2.onmouseover = function () {
+                startMove(oBtn2, 'opacity', 100);
+            };
+            oBtn1.onmouseout = oMark1.onmouseout = function () {
+                startMove(oBtn1, 'opacity', 0);
+            };
+            oBtn2.onmouseout = oMark2.onmouseout = function () {
+                startMove(oBtn2, 'opacity', 0);
+            };
+            //大图切换
+            for (var i = 0; i < aLi2.length; i++) {
+                aLi2[i].index = i;
+                aLi2[i].onclick = function () {
+                    if (this.index == now)return;
+                    now = this.index;
+                    Tab();
+                };
+                aLi2[i].onmouseover = function () {
+                    startMove(this, 'opacity', 100);
+                };
+                aLi2[i].onmouseout = function () {
+                    if (this.index != now) {
+                        startMove(this, 'opacity', 60);
+                    }
+                }
+            }
+            function Tab() {
+                aLi1[now].style.zIndex = nowZIndex++;
+
+                for (var i = 0; i < aLi2.length; i++) {
+                    startMove(aLi2[i], 'opacity', 60);
+                }
+                startMove(aLi2[now], 'opacity', 100);
+
+                aLi1[now].style.height = 0;
+                startMove(aLi1[now], 'height', 350);
+
+                if (now == 6) {
+                    startMove(aUl2, 'left', -400);
+                }
+                else if (now == 7) {
+                    startMove(aUl2, 'left', -400);
+                }
+                else if (now == 0) {
+                    startMove(aUl2, 'left', 0);
+                }
+                else {
+                    startMove(aUl2, 'left', -(now - 1) * 100);
+                }
+                oP.innerHTML=now+1+'/'+'8';
+            }
+
+
+            oBtn1.onclick = function () {
+                now--;
+                if (now == -1) {
+                    now = aLi2.length - 1;
+                }
+                Tab();
+            };
+            oBtn2.onclick = function () {
+                now++;
+                if (now == aLi2.length) {
+                    now = 0;
+                }
+                Tab();
+            }
+        }
+    </script>
+</head>
+<body >
+    <section >
+        <div id="div1">
+            <img src="imgs/btnLeft.png" id="btn1">
+            <img src="imgs/btnRight.png" id="btn2">
+            <a id="mark1"></a>
+            <a id="mark2"></a>
+            <ul id="ul1">
+                <li style="z-index:1;"><img src="imgs/01.jpg"></li>
+                <li ><img src="imgs/02.jpg"></li>
+                <li ><img src="imgs/03.jpg"></li>
+                <li ><img src="imgs/04.jpg"></li>
+                <li ><img src="imgs/05.jpg"></li>
+                <li ><img src="imgs/06.jpg"></li>
+                <li ><img src="imgs/07.jpg"></li>
+                <li ><img src="imgs/08.jpg"></li>
+            </ul>
+            <div id="span"><p id="p">1/8</p></div>
+        </div>
+        <div id="div2">
+            <ul id="ul2">
+                <li><img src="imgs/01.jpg" style="opacity: 1;"></li>
+                <li><img src="imgs/02.jpg"></li>
+                <li><img src="imgs/03.jpg"></li>
+                <li><img src="imgs/04.jpg"></li>
+                <li><img src="imgs/05.jpg"></li>
+                <li><img src="imgs/06.jpg"></li>
+                <li><img src="imgs/07.jpg"></li>
+                <li><img src="imgs/08.jpg"></li>
+            </ul>
+        </div>
+    </section>
+</body>
+</html>

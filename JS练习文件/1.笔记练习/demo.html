@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<link href="demo.css" rel="stylesheet" type="text/css" />
+<script>
+	window.onload(){
+		var wenzi=[
+      '一月',
+	  '二月',
+	  '三月',
+	  '四月',
+	  '五月',
+	  '六月',
+	  '七月',
+	  '八月',
+	  '九月',
+	  '十月',
+	  '十一月',
+	  '十二月',
+	]
+		var main=document.getElementByClassName('main');
+		var Li=oDiv.getElementsByTagName('li');
+		var Span=oDiv.getElementsByTagName('span')[0];
+		var Strong=oDiv.getElementsByTagName('strong')[0];
+	
+		for(var i=0;i<Li.length;i++){
+		   Li[i].index=i;
+	       Li[i].onmouseover=function(){
+		   Li[i].className=aa
+		}}
+		  
+		Span.innerHTML="(this.index+1)";
+		Strong.innerHTML="(wenzi[this.index];)";
+	
+	
+	
+	}
+
+</script>
+</head>
+<body>
+<div class="main">
+	<ul class="main_1">
+		<li class="li1 same aa">1<br/>JAN</li>
+		<li class="li2 same">2<br/>FEB</li>
+		<li class="li3 same">3<br/>MAR</li>
+		<li class="clear"></li>
+	</ul>
+	<ul class="main_1">
+		<li class="li1 same">4<br/>4JAN</li>
+		<li class="li2 same">5<br/>5FEB</li>
+		<li class="li3 same">6<br/>6MAR</li>
+		<li class="clear"></li>
+	</ul>
+	<ul class="main_1">
+		<li class="li1 same">7<br/>7JAN</li>
+		<li class="li2 same">8<br/>8FEB</li>
+		<li class="li3 same">9<br/>9MAR</li>
+		<li class="clear"></li>
+	</ul>
+	<ul class="main_1">
+		<li class="li1 same">10<br/>10JAN</li>
+		<li class="li2 same">11<br/>11FEB</li>
+		<li class="li3 same">12<br/>12MAR</li>
+		<li class="clear"></li>
+	</ul>
+	<div class="act">
+		<span>1</span>月活动<br/>
+		<strong>一</strong>月
+	</div>
+</div>
+
+</body>
+</html>

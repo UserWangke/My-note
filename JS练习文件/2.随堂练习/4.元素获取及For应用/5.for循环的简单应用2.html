@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>for循环的简单应用2</title>
+</head>
+<script>
+    //页面上放2000个按钮
+    window.onload=function(){
+     /*这样写程序执行太慢，有性能问题
+        for( var i=0; i<2000; i++ ){
+        document.body.innerHTML+='<input type="button" value="按钮"/>';
+     }
+     */
+        //第二种写法,这种写法程序执行快很多，不用每次去body里找元素，然后添加；
+        var str='';
+        for( var i=0; i<2000; i++ ){
+            str+='<input type="button" value="按钮"/>';
+        }
+        document.body.innerHTML+=str;
+    };
+</script>
+<body>
+
+</body>
+</html>

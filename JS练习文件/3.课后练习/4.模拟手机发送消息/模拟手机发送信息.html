@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>模拟手机发送信息</title>
+</head>
+<style>
+    body{background: #222222;}
+    input{margin:0px;padding: 0px;}
+    #main{width:250px;height: 520px;background: #F7F7F7;margin:100px auto;border: 3px solid #5A4231;
+        border-radius:25px;position: relative;}
+    #side1,#side2,#side3{background: #000000; position: absolute;}
+    #side1{width: 12px;height: 12px;border-radius:12px;top:15px;left:119px; }
+    #side2{width: 6px;height: 6px;border-radius:6px;top:42px;left:86px;}
+    #side3{width: 46px;height: 6px;border-radius:6px;top:42px;left:102px;}
+    #nmain{width: 230px;height: 360px;border: 2px solid #000000;margin:0 auto;position: absolute;top:78px;left: 10px;
+        background: #ffffff;border-radius: 5px;}
+    #mtext{width: 220px;height: 309px;border: 1px solid #000000;position: absolute;left: -1px;top: -1px;padding: 5px;
+        }
+    #footer{width: 230px;height: 40px;position: absolute;top:319px;left:-1px;border: 1px solid #000000;}
+    #btn1,#text,#btn2{height: 25px;position: absolute;top:5px;}
+    #btn1{width: 25px;left:5px;background: #000000;border-radius: 8px;overflow: hidden;}
+    #btn1 #imgs{width: 25px;height: 25px;}
+    #text{width: 145px;left:35px;}
+    #btn2{width: 40px;left:185px;}
+    #side4{width: 40px;height: 40px;border-radius:40px;border: 2px solid #1F1F1F;position: absolute;top:460px;left:105px;}
+
+    #mdiv{width:220px;float:left;margin-top:5px;background: url(img/1.jpg) no-repeat ;background-size:22px; }
+    #hdiv{width:220px;float:right;margin-top:5px;background: url(img/2.jpg) no-repeat top right;background-size:23px; }
+    #mspan{  color:#fff;padding:2px 5px;margin-left:28px;word-break:break-all;/*注意：如果不添加强制换行，中文可以自动换行，英文则不能自动换行*/
+        display:block;line-height:18px;border:1px thin;border-radius:5px;background:#00C5C5;float: left;}
+    #hspan{ padding:2px 5px;margin-right:28px;word-break:break-all;/*注意：如果不添加强制换行，中文可以自动换行，英文则不能自动换行*/
+        display:inline-block;line-height:18px;border:1px thin;border-radius:5px;color:#fff;background:#26FF26;float:right;}
+</style>
+<script>
+    window.onload=function() {
+        var oMtext = document.getElementById('mtext');
+        var oBtn1 = document.getElementById('btn1');
+        var oImgs = document.getElementById('imgs');
+        var oBtn2 = document.getElementById('btn2');
+        var oText = document.getElementById('text');
+        var Onoff = true;
+        //初始化
+        //头像引入
+        oImgs.onclick = function () {
+            if (Onoff) {
+                oImgs.src = 'img/2.jpg';
+                Onoff = false;
+            } else {
+                oImgs.src = 'img/1.jpg';
+                Onoff = true;
+            }
+        };
+        //文字键入
+        /*自己的第一种错误写法
+         if(Onoff==true){
+         oBtn2.onclick = function () {
+         oMtext.style.float='left';
+         oMtext.innerHTML+= '<div id="mdiv">'+'<span id="mspan">'+oText.value+'</span>'+'</div>';
+         oText.value = '';
+         }
+         }else{
+         oBtn2.onclick = function () {
+         oMtext.style.float='right';
+         oMtext.innerHTML+='<div id="hdiv">'+'<span id="hspan">'+oText.value+'</span>'+'</div>';
+         oText.value = '';
+         }
+         }
+         */
+        oBtn2.onclick = function () {
+            if(oText.value == ''){
+                alert('还没有输入内容哦...')
+            }else{
+                if(Onoff){
+                    oMtext.innerHTML+= '<div id="mdiv">'+'<span id="mspan">'+oText.value+'</span>'+'</div>';
+                    oText.value = '';
+                }else{
+                    oMtext.innerHTML+='<div id="hdiv">'+'<span id="hspan">'+oText.value+'</span>'+'</div>';
+                    oText.value = '';
+                }
+
+            }
+
+        }
+    };
+</script>
+<body>
+<section id="main">
+    <div id="side1"></div>
+    <div id="side2"></div>
+    <div id="side3"></div>
+    <div id="nmain">
+        <div id="mtext"></div>
+        <div id="footer">
+            <div id="btn1">
+                <img id="imgs" src="img/1.jpg"/>
+            </div>
+            <input id="text" type="text"/>
+            <input id="btn2" type="button" value="发送"/>
+        </div>
+    </div>
+    <div id="side4"></div>
+</section>
+</body>
+</html>

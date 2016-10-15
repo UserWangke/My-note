@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>if判断</title>
+</head>
+<script>
+    window.onload=function(){
+        var oText=document.getElementById('text');
+        var oBtn=document.getElementById('btn');
+        oBtn.onclick=function(){
+            if(oText.value==''){
+                alert('写点什么吧');
+            }
+            else if(oText.value=='CSS'){
+                alert('你写的是CSS恭喜通过');
+            }
+            else if(oText.value=='HTML'){
+                alert('你写的是HTML恭喜通过');
+            }
+            else if(oText.value=='JS'){
+                alert('你写的是JS恭喜通过');
+            }
+            else{
+                alert('对不起，你输入的是：'+oText.value+'，不许通过！');
+            }
+        };
+
+    };
+
+</script>
+<body>
+    通关口令：<input id="text" type="text" value=""/><br/>
+    <input id="btn" type="button" value="验证"/>
+<!--HTML,CSS.JS-->
+</body>
+</html>

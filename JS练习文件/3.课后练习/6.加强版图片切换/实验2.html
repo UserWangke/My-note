@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>实验</title>
+</head>
+<style>
+    body{background: #212121;}
+    ul,li,p,span{margin: 0;padding: 0;}
+    #main{width: 960px;height: 600px;margin:0 auto; background: url(img/bg.jpg) no-repeat -300px -100px;position: relative;}
+    #btn1,#btn2{width:60px;height:20px;line-height:20px;border-radius:10px;background: #fff;outline: none;position: absolute;}
+    #btn1{top:50px;left: 30px;}
+    #btn2{top:50px;left: 120px;}
+    #left,#right{height: 400px;background:url(img/loader_ico.gif ) no-repeat center #fff;;position: absolute;top:100px;}
+    #left{width: 520px;left: 40px;}
+    #right{width: 320px;right: 40px;}
+    #p1,#p2,#span1,#span2{height: 30px;line-height:30px;text-align: center;display: block;position: absolute;color: #000;}
+    #p1{width:50px;top:350px;left: 20px;}
+    #p2{width:50px;top:350px;left: 20px;}
+    #span1{width:150px;top:350px;left: 185px;}
+    #span2{width:150px;top:350px;left: 85px;}
+    #img1,#img2{height: 280px;position: absolute;top:20px;left: 20px;}
+    #img1{width: 480px;}
+    #img2{width: 280px;}
+</style>
+<script>
+    window.onload=function(){
+        var oDiv=document.getElementById('main');
+        var aBtn=oDiv.getElementsByTagName('input');
+        var aDiv=oDiv.getElementsByTagName('div');
+        var aP=oDiv.getElementsByTagName('p');
+        var aSpan=oDiv.getElementsByTagName('span');
+        var aImg=oDiv.getElementsByTagName('img');
+        var arrlUrl=['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];
+        var arrrUrl=['img/5.jpg','img/6.jpg','img/7.jpg'];
+        var arrltext=['笑靥如花','知性高冷','白衣飘飘','岁月静好'];
+        var arrrtext=['年华美丽','盛开如诗','美丽温柔'];
+        //初始化
+        aImg[0].src=arrlUrl[0];
+        aImg[1].src=arrrUrl[0];
+        aP[0].innerHTML=j+1+'/'+arrlUrl.length;
+        aP[1].innerHTML=k+1+'/'+arrrUrl.length;
+        aSpan[0].innerHTML=arrltext[0];
+        aSpan[1].innerHTML=arrrtext[0];
+        var j=0;
+        var k=0;
+        Tabfun();
+        function Tabfun(){
+            aP[0].innerHTML=j+1+'/'+arrlUrl.length;
+            aP[1].innerHTML=k+1+'/'+arrrUrl.length;
+            aImg[0].src=arrlUrl[j];
+            aImg[1].src=arrrUrl[k];
+            aSpan[0].innerHTML=arrltext[j];
+            aSpan[1].innerHTML=arrrtext[k];
+        }
+        for(var i=0;i<aBtn.length;i++){
+            if(j==0||k==0){index=0;demo=0}
+            if(i==0){
+            aBtn[i].onclick=function()
+            {
+                j=index;
+                k=demo;
+                j--;
+                k--;
+                if (j==-1) {
+                    j=arrlUrl.length-1;
+                }
+                if (k==-1) {
+                    k=arrrUrl.length-1;
+                }
+                    Tabfun();
+                    index=j;
+                    demo=k;
+                }
+            }else{
+                aBtn[i].onclick=function()
+                {
+                    j=index;
+                    k=demo;
+                    j++;
+                    k++;
+                    if (j==arrlUrl.length) {
+                        j=0;
+                    }
+                    if (k==arrrUrl.length) {
+                        k=0;
+                    }
+                    Tabfun();
+                    index=j;
+                    demo=k;
+                }
+            }
+        }
+    };
+</script>
+<body>
+<div id="main">
+    <input id="btn1" type="button" value="上一组" />
+    <input id="btn2" type="button" value="下一组" />
+    <div id="left">
+        <p id="p1">数量</p>
+        <img id="img1" src=""/>
+        <span id="span1">文字加载中...</span>
+    </div>
+    <div id="right">
+        <p id="p2">数量</p>
+        <img id="img2" src=""/>
+        <span id="span2">文字加载中...</span>
+    </div>
+</div>
+</body>
+</html>

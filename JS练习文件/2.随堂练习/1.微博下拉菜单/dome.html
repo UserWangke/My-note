@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js热身运动</title>
+<link rel="stylesheet" href="demo.css" type="text/css" />
+</head>
+<body>
+	<section>
+		<ul id="ul1">
+			<li id="li1">
+				<a href="#" id="link">微博</a>
+				<ul id="ul2">
+					<li>私信</li>
+					<li>评论</li>
+					<li>@我</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<script>
+	window.onload=function(){
+	var aa=document.getElementById('link');
+	var bb=document.getElementById('ul2');
+	var cc=document.getElementById('li1');
+	cc.onmouseover=show;
+	cc.onmouseout=outshow;
+		function show(){
+			bb.style.display='block';
+			aa.style.background = 'yellow';			
+		}
+		function outshow(){
+			bb.style.display='none';
+            aa.style.background = '#F1F1F1';				
+		}
+	}
+	</script>
+</body>
+</html>

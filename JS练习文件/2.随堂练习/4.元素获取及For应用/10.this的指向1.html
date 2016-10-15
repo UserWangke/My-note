@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>10.this的指向</title>
+</head>
+<script>
+    //this指的是调用当前那个方法(函数)的那个对象；
+    //window是js里的老大
+    //this 这个
+    //alert(this);  结果object window
+    //alert(this);是window.alert(this);的简写；
+    /*
+    总结：
+    function fun1(){
+        this
+    }
+    1.fun1();  fun1()里this指的是window
+    2.oBtn.onclick=fun1;  这种调用this指的是oBtn；
+    3.oBtn.onclick=function(){
+        fun1(); fun1()里的this指的也是window
+        this;   这里直接写this指的就是前面的oBtn了；
+    4.<div onclick="   "></div> ""里面用this指的就是div，但是如果里面调用fun1();fun1里面的this指的还是window。
+    */
+    window.onload=function(){
+        function fun1(){
+            alert(this);
+        }
+        var oBtn=document.getElementById('btn');
+        oBtn.onclick=fun1;
+    };
+</script>
+<body>
+    <input type="button" id="btn" value="按钮"/>
+</body>
+</html>

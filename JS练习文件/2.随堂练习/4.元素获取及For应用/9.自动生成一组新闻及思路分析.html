@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>9.自动生成一组新闻及思路分析</title>
+</head>
+<script>
+/*
+     解决每次点击都会生成5天新闻的bug思路：
+     1.找按钮麻烦
+       oBtn.onclick=function(){
+        oBtn.style.display='none';
+        或oBtn.disable=true; 等等  交互体验太差
+       }
+     2.先清空，再生成5条；性能会差一些，因为点击刷新；
+     oBtn.onclick=function(){
+     oUl.innerHTML='';
+         for(var i=0;i<arr.length;i++){
+         oUl.innerHTML+='<li>'+arr[i]+'</li>';
+         }
+     }
+     3.用判断
+     var onOff=true;
+         oBtn.onclick=function(){
+             if(onOff=true){
+                 onOff=false;放这里ok
+                 oUl.innerHTML='';
+                 for(var i=0;i<arr.length;i++){
+                 oUl.innerHTML+='<li>'+arr[i]+'</li>';
+                 onOff=false;放这里ok
+             }
+                 onOff=false;放这里ok
+         }
+     }
+    */
+    window.onload=function(){
+        var arr=['新闻1','新闻2','新闻3','新闻4','新闻5'];
+        var oBtn=document.getElementById('btn1');
+        var oUl=document.getElementById('list');
+        oBtn.onclick=function(){
+            for(var i=0;i<arr.length;i++){
+                oUl.innerHTML+='<li>'+arr[i]+'</li>';
+            }
+        }
+    };
+</script>
+<body>
+    <input type="button" id="btn1" value="自动生成5条新闻">
+    <ul id="list">
+
+    </ul>
+</body>
+</html>

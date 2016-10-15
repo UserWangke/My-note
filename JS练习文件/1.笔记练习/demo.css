@@ -1,0 +1,10 @@
+body{margin:0; padding:0;}
+.clear{clear:both;}
+.main{width:400px;height:600px;background:#999; margin:50px auto;padding:5px 40px 0 40px;}
+.main_1{width:320px; list-style:none;  margin-top:10px; }
+.main_1 .same{width:100px; height:100px;font-weight:bold; line-height:50px;background:#000; text-align:center; color:#fff;font-size:20px; float:left;}
+.main_1 .li1{margin-right:10px;}
+.main_1 .li2{margin-right:10px;}
+
+
+.act{width:320px; height:100px;border:2px solid red; background:#fff; margin:0 auto; padding:10px;font-size:25px; font-weight:bold; line-height:50px; font-weight:bold;}

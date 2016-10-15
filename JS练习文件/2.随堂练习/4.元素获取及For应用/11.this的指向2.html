@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>11.this的应用</title>
+</head>
+<script>
+    window.onload=function(){
+        var aBtn=document.getElementsByTagName('input');
+        var that=null;
+        for(var i=0;i<aBtn.length;i++){
+            /*aBtn[i].onclick=function(){
+                //this.style.background='red';
+                that=this;
+                fun1();
+            }*/
+            aBtn[i].onclick=fun1;//这里不能加括号；
+        }
+        function fun1(){
+            //that.style.background='red';
+            this.style.background='red';  //这里的this就是指aBtn;
+        }
+    };
+</script>
+<body>
+    <input type="button" value="按钮"/>
+    <input type="button" value="按钮"/>
+    <input type="button" value="按钮"/>
+</body>
+</html>

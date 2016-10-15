@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>6.图片切换综合实例-布局</title>
+</head>
+<style>
+    ul,p{padding:0;margin:0; }
+    li{list-style: none;}
+    body{background:#333; }
+    #pic{width: 400px;height:500px;position: relative;margin: 0 auto;
+        background: url(img/loader_ico.gif)no-repeat center #fff;}
+    #pic img{width: 400px;height:500px;}
+    #pic ul{width:40px;position: absolute;top:0;right:-60px;}
+    #pic li{width: 40px;height: 40px;margin-bottom: 4px;background: #666;}
+    #pic .active{background: #FC3;}
+    #pic p{bottom:0;}
+    #pic span{top:0; }
+    #pic span,#pic p{position:absolute;left: 0;width: 400px;height: 30px;line-height: 30px;text-align: center;
+        color: #fff;background: #000;}
+</style>
+<script>
+    //想建立“匹配”“对应”关系，就用索引值
+    window.onload=function(){
+        var oDiv=document.getElementById('pic');
+        var aImg=oDiv.getElementsByTagName('img')[0];
+        var aUl=oDiv.getElementsByTagName('ul')[0];
+        var aSpan=oDiv.getElementsByTagName('span')[0];
+        var aLi=aUl.getElementsByTagName('li');
+        var aP=oDiv.getElementsByTagName('p')[0];
+        var arrText=['一只鹰','魔幻','美女','忍者'];
+        var arrUrl=['img/1.png','img/2.png','img/3.png','img/4.png'];
+        var num=0;
+        var oldLi=null;
+        //初始化
+        for(var i=0;i<arrUrl.length;i++){
+            aUl.innerHTML+='<li></li>';
+        }
+        oldLi=aLi[num];
+        aImg.src=arrUrl[num];
+        aSpan.innerHTML=1+num+'/'+arrUrl.length;
+        aP.innerHTML=arrText[num];
+        aLi[num].className='active';
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index=i;
+            aLi[i].onmouseover=function(){
+                aImg.src=arrUrl[this.index];
+                aP.innerHTML=arrText[this.index];
+                aSpan.innerHTML=1+this.index+'/'+ arrUrl.length;
+                //修改class两种方法；扩展性更好；
+                //1.全部清空，当前加
+                /*for(var i=0;i<aLi.length; i++){
+                    aLi[i].className='';
+                    aLi[this.index].className='active';
+                }*/
+                //2.清空上一个，当前添加;性能更好
+                oldLi.className='';
+                oldLi=this;
+                this.className='active';
+            }
+        }
+    };
+</script>
+<body>
+    <div id="pic">
+        <img src=""/>
+        <span>数量加载中...</span>
+        <p>文字正在加载...</p>
+        <ul></ul>
+    </div>
+</body>
+</html>

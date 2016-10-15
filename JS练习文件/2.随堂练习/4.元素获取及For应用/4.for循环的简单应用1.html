@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>for循环的简单应用1</title>
+</head>
+<style>
+    li{list-style:none;height: 30px;border-bottom: 1px solid #333;}
+</style>
+<script>
+    window.onload=function(){
+    var oUl=document.getElementById('list');
+    var aLi=oUl.getElementsByTagName('li');
+    var arr=['今天','明天','后天'];
+
+    //aLi.onclick=function(){alert(1);};这是典型的错误写法；
+    <!--
+    aLi[0].onclick=function(){alert(1);};
+    aLi[1].onclick=function(){alert(2);};
+    aLi[2].onclick=function(){alert(3);};
+    -->
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].innerHTML=arr[i];
+            aLi[i].onclick=function(){
+                //alert(i); i=>3 后面可以用闭包改变数字；
+
+            };
+        }
+    };
+</script>
+<body>
+    <ul id="list">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

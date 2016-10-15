@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>自动生成V字形</title>
+</head>
+<style>
+    li{width:50px;height:50px;position: absolute;list-style: none;background: red;}
+    #main{width: 1200px;height:600px;border: 1px solid #000000;position: relative;}
+</style>
+<script>
+    window.onload=function(){
+        var oMain=document.getElementById('main');
+        var oBtn=document.getElementById('btn');
+        var aLi=oMain.getElementsByTagName('li');
+        var carr=['red','yellow','blue','green'];
+        oBtn.onclick=function(){
+            for(var i=0;i<11;i++) {
+                if(i<=5){
+                    oMain.innerHTML+='<li></li>';
+                    aLi[i].style.left=i*50+'px';
+                    aLi[i].style.top=i*50+'px';
+                }else{
+                    oMain.innerHTML+='<li></li>';
+                    aLi[i].style.left=i*50+'px';
+                    aLi[i].style.top=250-(i-5)*50+'px';
+                }
+            }
+            for(var i=0;i<10;i++){
+                var j=i%4;
+                aLi[i].style.background=carr[j];
+            } //重要思路：用于变量余数定另一个变量，使它也可以变化；
+        }
+    };
+</script>
+<body>
+<input id="btn" type="button" value="自动生成10个li按钮" />
+<div id="main"></div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>不同等级人员设计微博列表</title>
+</head>
+<style type="text/css">
+	*{margin: 0;padding: 0;}
+	#demo01{width: 600px;position: relative;overflow: hidden;}
+	#demo01 #left{width: 100px;float: left;}
+	#demo01 #left img{margin-left: 20px;width: 50px;height: 75px;}
+	#demo01 #right{width: 458px;padding: 20px;float: right;background: #9CF;border: 1px solid #000;}
+	#demo01 p{font-size: 12px;line-height: 25px;}
+	#demo01 span{font-size: 12px;position: absolute;right: 20px;top: 10px;}
+
+	#demo02{width: 600px;position: relative;overflow: hidden;}
+	#demo02 img{margin-left: 20px;float:left;width: 50px;height: 75px;}
+	#demo02 #right{width: 458px;padding: 20px;float: right;background: #9CF;border: 1px solid #000;}
+	#demo02 p{font-size: 12px;line-height: 25px;}
+	#demo02 span{font-size: 12px;position: absolute;right: 20px;top: 10px;}
+
+	#demo03{width: 458px;padding: 20px;margin-left:100px;background: #9CF;border: 1px solid #000;;position: relative;}
+	#demo03 img{float:left;margin: -20px 0 0 -100px;width: 50px;height: 75px;}
+	#demo03 p{font-size: 12px;line-height: 25px;}
+	#demo03 span{font-size: 12px;position: absolute;right: 20px;top: 10px;}
+</style>
+<body>
+	<!-- 初级人员 -->
+	<div id="demo01">
+		<div id="left">
+			<img src="img/1.jpg">
+		</div>
+		<div id="right">
+			<h6>樱桃小丸子</h6>
+			<p>等你学了一年以后再来看这个视频，你会发现 @昨日灵魂 同学提出的问题基本上不是问题，为什么不能左溢出？把三层div嵌套优化成一层减少的代码量你知道有多少么？你看到的只是html里面的一点代码少了而已，但是你看到了样式中减少的选择器么，如果整个页面都是这样像你所说的为了拓展【其实一层div也很方便拓展，方法多的去了】，div嵌套div，乱用div,你想改个部分才麻烦啊。还有@心远地自偏 同学，你说别人误人子弟，可你连自己结构和表现分离都没搞清，你才是误人子弟好吧。结构只是表示内容的结构而已，你多的div是为了结构么？只是为了充当一个容器好方便css改样式好吧</p>
+			<span>10分钟之前</span>
+		</div>
+	</div>
+	<br/><br/>
+	<!-- 中级人员 -->
+	<div id="demo02">
+			<img src="img/1.jpg">
+		<div id="right">
+			<h6>樱桃小丸子</h6>
+			<p>等你学了一年以后再来看这个视频，你会发现 @昨日灵魂 同学提出的问题基本上不是问题，为什么不能左溢出？把三层div嵌套优化成一层减少的代码量你知道有多少么？你看到的只是html里面的一点代码少了而已，但是你看到了样式中减少的选择器么，如果整个页面都是这样像你所说的为了拓展【其实一层div也很方便拓展，方法多的去了】，div嵌套div，乱用div,你想改个部分才麻烦啊。还有@心远地自偏 同学，你说别人误人子弟，可你连自己结构和表现分离都没搞清，你才是误人子弟好吧。结构只是表示内容的结构而已，你多的div是为了结构么？只是为了充当一个容器好方便css改样式好吧</p>
+			<span>10分钟之前</span>
+		</div>
+	</div>
+	<br/><br/>
+	<!-- 高级人员 -->
+	<div id="demo03">
+		<img src="img/1.jpg">
+		<h6>樱桃小丸子</h6>
+		<p>等你学了一年以后再来看这个视频，你会发现 @昨日灵魂 同学提出的问题基本上不是问题，为什么不能左溢出？把三层div嵌套优化成一层减少的代码量你知道有多少么？你看到的只是html里面的一点代码少了而已，但是你看到了样式中减少的选择器么，如果整个页面都是这样像你所说的为了拓展【其实一层div也很方便拓展，方法多的去了】，div嵌套div，乱用div,你想改个部分才麻烦啊。还有@心远地自偏 同学，你说别人误人子弟，可你连自己结构和表现分离都没搞清，你才是误人子弟好吧。结构只是表示内容的结构而已，你多的div是为了结构么？只是为了充当一个容器好方便css改样式好吧</p>
+		<span>10分钟之前</span>
+	</div>	
+</body>
+</html>

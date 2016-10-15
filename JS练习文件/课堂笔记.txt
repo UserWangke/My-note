@@ -1,0 +1,8 @@
+JS笔记：
+1.js中改变属性遇见有‘-’的属性如line-height,改写成“lineHeight”
+2.保留字，关键字。如用js动态给元素加class不能写成如oP.class='main';应该写成oP.className='main';。因为class是js的保留字。 
+3.所有的相对路径地址（href url src 除非是绝对路径如：http://www.baidu.com/1.jpg），颜色值（color：red; #fff; rgb();....），和innerHTML的值（会引发兼容性问题）都别拿来做判断！！！
+4.input.onclick=function(){
+input.type='text';
+};  IE6.7.8不支持js改变表单属性，会报错；
+ 

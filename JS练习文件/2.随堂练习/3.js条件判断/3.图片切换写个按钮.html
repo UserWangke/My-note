@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图片切换写个按钮</title>
+</head>
+<script>
+    window.onload=function(){
+        var oImg=document.getElementById('img');
+        var onOff=true;
+        oImg.onclick=function(){
+            if(onOff) {
+                oImg.src='img/1.jpg';
+                onOff=false;
+            }else{
+                oImg.src='img/2.jpg';
+                onOff=true;
+            }
+        };
+    };
+</script>
+<body>
+<img id="img" src="img/1.jpg"/>
+</body>
+</html>

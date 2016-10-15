@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>6.isNaN实例</title>
+</head>
+<script>
+    window.onload=function(){
+        var aBtn=document.getElementsByTagName('input');
+        var str='';
+        aBtn[1].onclick=function(){
+            str=aBtn[0].value;
+            //HTML中拿到的内容，数据类型都是字符串；
+            if(isNaN(str)==false){
+                alert('是数字');
+            }else{
+                alert('非数字');
+            }
+        }
+    };
+</script>
+<body>
+    <input type="text" />
+    <input type="button" value="判断输入值是否是数字" />
+</body>
+</html>

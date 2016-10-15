@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js打开新窗口</title>
+</head>
+<script type="text/javascript">
+	function openWindow() {
+		var aa=confirm('确定打开此网页？');
+		if (aa==true) {
+			var url=prompt("通过输入对话框，确定打开的网址","http://www.imooc.com");
+		if (url!==true) {
+				window.open('_black','width:400px;height:500px;menubar:no;toolbar:no;');
+			}else {
+				alert('返回首页');
+			}
+		}
+			else {alert('返回首页');
+			}	
+		}
+	}
+</script>
+<body>
+	<input type="button" value="新窗口打开网站" onclick="openWindow()" />
+</body>
+</html>
+
+
